@@ -102,13 +102,8 @@ public class StoneCollectionGameModel {
         for (Point p: moves){
             Logger.debug("({},{})", p.getX(), p.getY());
         }
-        int firstRow = moves.get(0).getX();
-        int firstColumn = moves.get(0).getY();
-        boolean allSameRowsOrColumns = moves.stream().allMatch(
-                point ->
-                    point.getX().equals(firstRow) || point.getY().equals(firstColumn)
-        );
-        if (allSameRowsOrColumns) {
+
+        if (allSameRowsOrColumns(moves)) {
             for (int i = 0; i < moves.size() - 1; i++) {
                 int rowDiff = Math.abs((Integer) moves.get(i + 1).getX() - (Integer) moves.get(i).getX());
                 int colDiff = Math.abs((Integer) moves.get(i + 1).getY() - (Integer) moves.get(i).getY());
@@ -121,6 +116,22 @@ public class StoneCollectionGameModel {
         return true;
     }
 
+    /**
+     * Returns true if the chosen stones are from the same rows or columns
+     * false otherwise
+     *
+     * @param moves a list of points clicked by the player
+     * @return  true if the chosen stones are adjacent to one another
+     * false otherwise
+     */
+    public static boolean allSameRowsOrColumns(List<Point> moves){
+        int firstRow = moves.get(0).getX();
+        int firstColumn = moves.get(0).getY();
+        return moves.stream().allMatch(
+                point ->
+                        point.getX().equals(firstRow) || point.getY().equals(firstColumn)
+        );
+    }
 
     public void setWinnerName(String name){
         this.winnerName = name;
