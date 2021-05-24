@@ -6,6 +6,13 @@ public class Point {
     private int x;
     private int y;
 
+    /**
+     * Returns the direction to which the cube at the specified position is rolled to the empty space.
+     *
+     * @param x the row of the board
+     * @param y the column of the board
+     * @throws IllegalArgumentException if row or column is less than 0
+     */
     public Point(int x, int y) {
         if (x<0 || y<0) throw new IllegalArgumentException();
         else{
@@ -13,24 +20,36 @@ public class Point {
         this.y = y;}
     }
 
+
+    /**
+     * Returns the row coordinate.
+     *
+     * @return the row coordinate
+     */
     public Integer getX() {
         return x;
     }
 
+    /**
+     * Returns the column coordinate.
+     *
+     * @return the column coordinate
+     */
     public Integer getY() {
         return y;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
 
     public static class sortByXorY implements Comparator<Point> {
 
+
+        /**
+         * Returns value of comparison between rows and columns of both objects.
+         *
+         * @param o1 point of first object
+         * @param o2 point of second object
+         * @return value of comparison between rows and columns of both objects
+         */
         @Override
         public int compare(Point o1, Point o2) {
             if (o1.getX().compareTo(o2.getX()) == 0) {

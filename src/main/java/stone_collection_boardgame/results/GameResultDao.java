@@ -44,13 +44,21 @@ void createTable();
     @SqlUpdate("DELETE FROM gameresult WHERE id = :id")
     void deleteGameResult(@BindBean GameResult gameResult);
 
+    /**
+     * Return all the game results from the database
+     */
     @SqlQuery("SELECT * FROM gameresult ORDER BY id")
     List<GameResult> listGameResults();
 
-
+    /**
+     * Return top 5 winner's names and number of wins
+     */
     @SqlQuery("select * from (select winnerName, count(winnerName) wins from gameresult group by winnerName order by count(winnerName) DESC) where rownum <=5")
     List<WinnerResult> listTop5WinnerResult();
 
+    /**
+     * Return the last game's id
+     */
     @SqlQuery("SELECT id FROM gameresult WHERE ROWNUM <=1 ORDER BY id DESC")
     int getLastGameID();
 }

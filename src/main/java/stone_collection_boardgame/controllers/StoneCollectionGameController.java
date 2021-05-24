@@ -114,14 +114,9 @@ public class StoneCollectionGameController {
         if (model.isValidMove(moves)){
             totalStoneCollected += stoneCollected;
             stoneCollected = 0;
-            model.switchPlayerTurn();
-            switch (model.getPlayerTurn()){
-                case ONE -> currentPlayerName.setText(player1Name);
-                case TWO -> currentPlayerName.setText(player2Name);
-            }
             moves = new ArrayList<>();
             clickedButtons = new ArrayList<>();
-            Logger.info("{} stones have been collected", totalStoneCollected);
+            Logger.debug("{} stones have been collected", totalStoneCollected);
 
             boolean allStonesAreCollected = totalStoneCollected == 16;
             if (allStonesAreCollected) {
@@ -129,16 +124,21 @@ public class StoneCollectionGameController {
                     case ONE -> model.setWinnerName(player1Name);
                     case TWO -> model.setWinnerName(player2Name);
                 }
+
                 Logger.debug("The winner is {}", model.getWinnerName());
                 createGameResult();
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Parent root = FXMLLoader.load(getClass().getResource("/fxml/highscore_ui.fxml"));
                 stage.setScene(new Scene(root));
                 stage.show();
-
-
             }
-            Logger.debug(moves);
+            else { model.switchPlayerTurn();
+                switch (model.getPlayerTurn()) {
+                    case ONE -> currentPlayerName.setText(player1Name);
+                    case TWO -> currentPlayerName.setText(player2Name);
+                }
+                Logger.debug(moves);
+            }
         }
         else{
             Logger.debug("Invalid Move!");

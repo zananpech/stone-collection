@@ -22,13 +22,4 @@ public class GameResult {
     private LocalDate gameDate;
     private LocalTime gameTime;
 
-//    public GameResult(int id, String player1Name, int stepsByPlayer1, String player2Name, int stepsByPlayer2, String winnerName, LocalDate date) {
-//        this.id = id;
-//        this.player1Name = player1Name;
-//        this.stepsByPlayer1 = stepsByPlayer1;
-//        this.player2Name = player2Name;
-//        this.stepsByPlayer2 = stepsByPlayer2;
-//        this.winnerName = winnerName;
-//        this.gameDate = date;
-//    }
 }
