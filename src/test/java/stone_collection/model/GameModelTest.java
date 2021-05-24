@@ -6,7 +6,8 @@ import stone_collection_boardgame.model.StoneCollectionGameModel;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 public class GameModelTest {
 
     @Test

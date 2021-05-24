@@ -1,8 +1,9 @@
 package stone_collection.model;
+
 import org.junit.jupiter.api.Test;
 import stone_collection_boardgame.model.Point;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PointTest {
 

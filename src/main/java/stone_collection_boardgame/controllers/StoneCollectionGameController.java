@@ -1,6 +1,5 @@
 package stone_collection_boardgame.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import lombok.extern.java.Log;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.statement.Slf4JSqlLogger;
 import org.jdbi.v3.sqlobject.SqlObjectPlugin;
@@ -22,10 +20,8 @@ import stone_collection_boardgame.model.Point;
 import stone_collection_boardgame.model.StoneCollectionGameModel;
 import stone_collection_boardgame.results.GameResult;
 import stone_collection_boardgame.results.GameResultDao;
-import util.javafx.ControllerHelper;
 
 import javax.inject.Inject;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
