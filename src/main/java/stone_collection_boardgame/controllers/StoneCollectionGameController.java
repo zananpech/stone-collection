@@ -63,7 +63,7 @@ public class StoneCollectionGameController {
     }
 
     @FXML
-    private void initialize() throws FileNotFoundException {
+    private void initialize() {
         for (int i = 0; i < board.getRowCount(); i++) {
             for (int j = 0; j < board.getColumnCount(); j++) {
                 var stoneButton = createButton();
@@ -92,7 +92,6 @@ public class StoneCollectionGameController {
         var col = GridPane.getColumnIndex(square);
         moves.add(new Point(row,col));
         Logger.debug("Button ({}, {}) is pressed", row, col);
-        //model.setSquareProperty(row,col);
         stoneCollected++;
         square.setDisable(true);
     }

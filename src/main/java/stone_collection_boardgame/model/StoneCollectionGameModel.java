@@ -56,10 +56,8 @@ public class StoneCollectionGameModel {
     public int getStepsByPlayer1(){return this.stepsByPlayer1;}
     public int getStepsByPlayer2(){return this.stepsByPlayer2;}
 
-    public boolean isValidMove(List<Point> moves) {
-        Collections.sort(moves, new Point.sortByDiffOfXandY());
-        for (Point p: moves)
-            System.out.println(p.getX() + " " + p.getY());
+    public static boolean isValidMove(List<Point> moves) {
+        Collections.sort(moves, new Point.sortByXorY());
         for (int i = 0; i < moves.size() - 1; i++) {
             int rowDiff = Math.abs((Integer) moves.get(i+1).getX() - (Integer) moves.get(i).getX());
             int colDiff = Math.abs((Integer) moves.get(i + 1).getY() - (Integer) moves.get(i).getY());

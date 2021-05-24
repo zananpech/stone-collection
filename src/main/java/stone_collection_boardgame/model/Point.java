@@ -7,8 +7,10 @@ public class Point {
     private int y;
 
     public Point(int x, int y) {
+        if (x<0 || y<0) throw new IllegalArgumentException();
+        else{
         this.x = x;
-        this.y = y;
+        this.y = y;}
     }
 
     public Integer getX() {
@@ -19,11 +21,15 @@ public class Point {
         return y;
     }
 
-    public Integer getDiffOfXandY(){
-        return this.y - this.x;
+    public void setX(int x) {
+        this.x = x;
     }
 
-     public static class sortByDiffOfXandY implements Comparator<Point> {
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public static class sortByXorY implements Comparator<Point> {
 
         @Override
         public int compare(Point o1, Point o2) {
