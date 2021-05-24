@@ -30,7 +30,9 @@ public class StoneCollectionGameModel {
 
     private String winnerName;
 
-
+/**
+   * create board to the console
+*/
     public StoneCollectionGameModel() {
 
         for (int i = 0; i < BOARD_SIZE; i++) {
@@ -40,13 +42,13 @@ public class StoneCollectionGameModel {
         }
     }
 
-    public Boolean getSquareProperty(int row, int col){
+    /*public Boolean getSquareProperty(int row, int col){
         return board[row][col];
     }
 
     public void setSquareProperty(int row, int col){
         board[row][col] = Boolean.TRUE;
-    }
+    }*/
 
 
     /**
@@ -133,12 +135,15 @@ public class StoneCollectionGameModel {
         );
     }
 
+   /** set winner's name
+    *@param name winner's name
+    */
     public void setWinnerName(String name){
         this.winnerName = name;
     }
 
     /**
-     * {@return the name of the winner
+     * @return the name of the winner
      */
     public String getWinnerName(){
         return this.winnerName;

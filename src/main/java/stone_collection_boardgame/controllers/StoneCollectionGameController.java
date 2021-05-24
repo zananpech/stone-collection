@@ -28,7 +28,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+*game controller class of the application
+*/
 public class StoneCollectionGameController {
 
     @FXML
@@ -58,6 +60,13 @@ public class StoneCollectionGameController {
     private int totalStoneCollected = 0;
     private int stoneCollected = 0;
 
+    /**
+     * set names of both players
+     *
+     *
+     * @param player1Name name of player1
+     * @param player2Name name of player2
+     */
     public void setPlayerName(String player1Name, String player2Name) {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
@@ -75,7 +84,7 @@ public class StoneCollectionGameController {
     }
 
     private Button createButton() {
-        stoneImage = new Image(getClass().getResource("/images/stone2.png").toExternalForm());
+        stoneImage = new Image(getClass().getResource("/images/stone.png").toExternalForm());
         var stoneButton = new Button();
         stoneButton.setGraphic(new ImageView(stoneImage));
         stoneButton.setOnMouseClicked(this::handleCollectStone);
@@ -95,17 +104,14 @@ public class StoneCollectionGameController {
         square.setDisable(true);
     }
 
-//    private void handleSolved(ObservableValue<? extends Boolean> observableValue, boolean oldValue, boolean newValue) {
-//        if (newValue) {
-//            Logger.info("Player {} has solved the game in {} steps", playerName, steps.get());
-//            stopwatch.stop();
-//            messageLabel.setText(String.format("Congratulations, %s!", playerName));
-//            resetButton.setDisable(true);
-//            giveUpFinishButton.setText("Finish");
-//        }
-//    }
 
-
+  /**  finish player's Turn if the chosen stones are adjacent and if all rows or all columns
+    *are the same.
+    *if all stones are collected, end the game.
+    *write game result to database.
+   * @param event on pressed
+   * @throws IOException exception
+   */
     public void handleFinishTurn(javafx.event.ActionEvent event) throws IOException {
         if (model.isValidMove(moves)){
             totalStoneCollected += stoneCollected;
@@ -146,6 +152,9 @@ public class StoneCollectionGameController {
         }
     }
 
+/**    Return a list of all game results.
+ * write game result to oracle sql database
+ */
     public void createGameResult() {
         Jdbi jdbi = Jdbi.create("jdbc:oracle:thin:@oracle.inf.unideb.hu:1521:ora19c", "u_Q15ZGK", "kalvinter");
         jdbi.installPlugin(new SqlObjectPlugin());

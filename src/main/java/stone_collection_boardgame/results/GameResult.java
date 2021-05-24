@@ -12,6 +12,10 @@ import java.time.LocalTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
+/**
+*gameresult class of the application
+*/
 public class GameResult {
     private int id;
     private String player1Name;

@@ -25,7 +25,9 @@ import javax.inject.Inject;
 import java.io.IOException;
 import java.util.List;
 
-
+/**
+*High score class of the application
+*/
 public class HighScoreGameController {
 
 
@@ -62,7 +64,11 @@ public class HighScoreGameController {
         highScoreTable.setItems(observableResult);
 
     }
-    public void handleReplayButton(ActionEvent actionEvent) throws IOException {
+
+/**
+ *Restart the game when press
+*/
+public void handleReplayButton(ActionEvent actionEvent) throws IOException {
         Logger.debug("{} is pressed", ((Button) actionEvent.getSource()).getText());
         FXMLLoader fxmlLoader = new FXMLLoader(HighScoreGameController.class.getResource("/fxml/openinggame_ui.fxml"));
         Parent root = fxmlLoader.load();
@@ -71,7 +77,10 @@ public class HighScoreGameController {
         stage.show();
     }
 
-    public void handleExitButton() {
+/**
+ *   exit the application
+*/
+public void handleExitButton() {
         Platform.exit();
         System.exit(0);
 

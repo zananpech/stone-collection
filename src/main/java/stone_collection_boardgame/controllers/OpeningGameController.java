@@ -13,6 +13,9 @@ import org.tinylog.Logger;
 
 import java.io.IOException;
 
+/**
+*opening game class of the application
+*/
 public class OpeningGameController {
 
     @FXML
@@ -25,6 +28,9 @@ public class OpeningGameController {
     @FXML
     private Label errorLabel;
 
+/**
+ *  start the game when start button is pressed
+*/
     @FXML
     public void startGame(ActionEvent actionEvent) throws IOException {
         System.out.println(Player1NameTextField.getText());

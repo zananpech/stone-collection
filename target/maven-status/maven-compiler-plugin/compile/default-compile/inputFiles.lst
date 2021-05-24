@@ -1,13 +1,11 @@
 /Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/model/Point.java
 /Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/StoneCollectionGameApplication.java
 /Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/controllers/OpeningGameController.java
-/Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/controllers/HighScoreGameController.java
-/Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/util/javafx/package-info.java
-/Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/controllers/StoneCollectionGameController.java
-/Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/model/StoneCollectionGameModel.java
-/Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/util/javafx/ControllerHelper.java
 /Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/results/GameResultDao.java
 /Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/results/GameResult.java
 /Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/results/WinnerResult.java
 /Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/Main.java
+/Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/controllers/HighScoreGameController.java
+/Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/controllers/StoneCollectionGameController.java
 /Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/model/Player.java
+/Users/zananpech/Documents/Computer_Science_Year2/Software_Engineering/Lab/stone_collection/src/main/java/stone_collection_boardgame/model/StoneCollectionGameModel.java

@@ -2,6 +2,9 @@ package stone_collection_boardgame.model;
 
 import java.util.Comparator;
 
+/**
+*coordinate class of row and column
+*/
 public class Point {
     private int x;
     private int y;
@@ -39,7 +42,9 @@ public class Point {
         return y;
     }
 
-
+/**
+ *   class sort the points in ascending order
+*/
     public static class sortByXorY implements Comparator<Point> {
 
 
