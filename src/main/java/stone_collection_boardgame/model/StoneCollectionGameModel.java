@@ -1,16 +1,16 @@
 package stone_collection_boardgame.model;
 
+import org.tinylog.Logger;
+
 import java.util.Collections;
 import java.util.List;
 
 public class StoneCollectionGameModel {
 
     public static int BOARD_SIZE = 4;
-    public static int id = 0;
 
     private Boolean[][] board = new Boolean[BOARD_SIZE][BOARD_SIZE];
     private Player player = Player.ONE;
-
 
     private int stepsByPlayer1 = 0;
     private int stepsByPlayer2 = 0;
@@ -19,12 +19,12 @@ public class StoneCollectionGameModel {
 
 
     public StoneCollectionGameModel() {
+
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 board[i][j] = false;
             }
         }
-        id++;
     }
 
     public Boolean getSquareProperty(int row, int col){
@@ -58,14 +58,25 @@ public class StoneCollectionGameModel {
 
     public static boolean isValidMove(List<Point> moves) {
         Collections.sort(moves, new Point.sortByXorY());
-        for (int i = 0; i < moves.size() - 1; i++) {
-            int rowDiff = Math.abs((Integer) moves.get(i+1).getX() - (Integer) moves.get(i).getX());
-            int colDiff = Math.abs((Integer) moves.get(i + 1).getY() - (Integer) moves.get(i).getY());
-
-            if ((rowDiff + colDiff) > 1) {
-                return false;
+        for (Point p: moves){
+            Logger.debug("({},{})", p.getX(), p.getY());
+        }
+        int firstRow = moves.get(0).getX();
+        int firstColumn = moves.get(0).getY();
+        boolean allSameRowsOrColumns = moves.stream().allMatch(
+                point ->
+                    point.getX().equals(firstRow) || point.getY().equals(firstColumn)
+        );
+        if (allSameRowsOrColumns) {
+            for (int i = 0; i < moves.size() - 1; i++) {
+                int rowDiff = Math.abs((Integer) moves.get(i + 1).getX() - (Integer) moves.get(i).getX());
+                int colDiff = Math.abs((Integer) moves.get(i + 1).getY() - (Integer) moves.get(i).getY());
+                if ((rowDiff + colDiff) > 1) {
+                    return false;
+                }
             }
         }
+        else{return false;}
         return true;
     }
 

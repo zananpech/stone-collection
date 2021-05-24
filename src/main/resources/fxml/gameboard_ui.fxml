@@ -11,7 +11,11 @@
 
 <AnchorPane prefHeight="609.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stone_collection_boardgame.controllers.StoneCollectionGameController">
    <children>
-      <Button fx:id="handleFinishTurn" layoutX="252.0" layoutY="547.0" mnemonicParsing="false" onAction="#handleFinishTurn" prefHeight="41.0" prefWidth="110.0" text="Finish" />
+      <Button fx:id="handleFinishTurn" layoutX="252.0" layoutY="547.0" mnemonicParsing="false" onAction="#handleFinishTurn" prefHeight="41.0" prefWidth="110.0" text="Finish">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
       <GridPane fx:id="board" layoutX="18.0" layoutY="44.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="468.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -26,12 +30,12 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Label layoutX="512.0" layoutY="232.0" prefHeight="26.0" prefWidth="121.0" text="Player's Turn">
+      <Label layoutX="498.0" layoutY="234.0" prefHeight="26.0" prefWidth="121.0" text="Player's Turn">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="currentPlayerName" layoutX="512.0" layoutY="273.0" prefHeight="32.0" prefWidth="110.0">
+      <Label fx:id="currentPlayerName" layoutX="498.0" layoutY="267.0" prefHeight="32.0" prefWidth="110.0" textFill="#0dc3db">
          <font>
             <Font size="20.0" />
          </font>

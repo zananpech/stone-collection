@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -48,6 +49,10 @@ public class StoneCollectionGameController {
     private String player1Name;
     private String player2Name;
 
+
+    @FXML
+    private Label currentPlayerName;
+
     @Inject
     private FXMLLoader fxmlLoader;
 
@@ -60,6 +65,7 @@ public class StoneCollectionGameController {
     public void setPlayerName(String player1Name, String player2Name) {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
+        currentPlayerName.setText(player1Name);
     }
 
     @FXML
@@ -70,15 +76,12 @@ public class StoneCollectionGameController {
                 board.add(stoneButton, j, i);
             }
         }
-
     }
 
     private Button createButton() {
         stoneImage = new Image(getClass().getResource("/images/stone2.png").toExternalForm());
         var stoneButton = new Button();
         stoneButton.setGraphic(new ImageView(stoneImage));
-//        var stoneImage = loadImage();
-//        square.getChildren().add(stoneImage);
         stoneButton.setOnMouseClicked(this::handleCollectStone);
         return stoneButton;
     }
@@ -112,6 +115,10 @@ public class StoneCollectionGameController {
             totalStoneCollected += stoneCollected;
             stoneCollected = 0;
             model.switchPlayerTurn();
+            switch (model.getPlayerTurn()){
+                case ONE -> currentPlayerName.setText(player1Name);
+                case TWO -> currentPlayerName.setText(player2Name);
+            }
             moves = new ArrayList<>();
             clickedButtons = new ArrayList<>();
             Logger.info("{} stones have been collected", totalStoneCollected);
