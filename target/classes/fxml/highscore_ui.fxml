@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stone_collection_boardgame.controllers.HighScoreGameController">
    <children>
       <TableView fx:id="highScoreTable" layoutX="50.0" layoutY="50.0" prefHeight="500.0" prefWidth="500.0">
@@ -16,5 +22,10 @@
             <Button fx:id="exit" mnemonicParsing="false" onAction="#handleExitButton" prefHeight="30.0" prefWidth="80.0" text="Exit" />
         </buttons>
       </ButtonBar>
+      <Label layoutX="209.0" layoutY="14.0" text="High Score Board" textFill="#2dcbc6">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -33,6 +33,7 @@ import java.util.List;
 */
 public class StoneCollectionGameController {
 
+
     @FXML
     private GridPane board;
 
@@ -50,6 +51,9 @@ public class StoneCollectionGameController {
 
     @FXML
     private Label currentPlayerName;
+
+    @FXML
+    private Label validityLabel;
 
     @Inject
     private FXMLLoader fxmlLoader;
@@ -94,14 +98,14 @@ public class StoneCollectionGameController {
 
     @FXML
     private void handleCollectStone(MouseEvent event) {
-        var square = (Button) event.getSource();
-        clickedButtons.add(square);
-        var row = GridPane.getRowIndex(square);
-        var col = GridPane.getColumnIndex(square);
+        var stoneButton = (Button) event.getSource();
+        clickedButtons.add(stoneButton);
+        var row = GridPane.getRowIndex(stoneButton);
+        var col = GridPane.getColumnIndex(stoneButton);
         moves.add(new Point(row,col));
         Logger.debug("Button ({}, {}) is pressed", row, col);
         stoneCollected++;
-        square.setDisable(true);
+        stoneButton.setDisable(true);
     }
 
 
@@ -118,15 +122,21 @@ public class StoneCollectionGameController {
             stoneCollected = 0;
             moves = new ArrayList<>();
             clickedButtons = new ArrayList<>();
+            validityLabel.setText("");
             Logger.debug("{} stones have been collected", totalStoneCollected);
 
             boolean allStonesAreCollected = totalStoneCollected == 16;
             if (allStonesAreCollected) {
                 switch (model.getPlayerTurn()){
-                    case ONE -> model.setWinnerName(player1Name);
-                    case TWO -> model.setWinnerName(player2Name);
+                    case ONE -> {
+                        model.setWinnerName(player1Name);
+                        model.incrStepsByPlayer1();
+                    }
+                    case TWO -> {
+                        model.setWinnerName(player2Name);
+                        model.incrStepsByPlayer2();
+                    }
                 }
-
                 Logger.debug("The winner is {}", model.getWinnerName());
                 createGameResult();
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -144,6 +154,7 @@ public class StoneCollectionGameController {
         }
         else{
             Logger.debug("Invalid Move!");
+            validityLabel.setText("Invalid Move!");
             stoneCollected = 0;
             moves = new ArrayList<>();
             for (Button button : clickedButtons){

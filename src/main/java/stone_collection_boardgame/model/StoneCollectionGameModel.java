@@ -58,11 +58,11 @@ public class StoneCollectionGameModel {
         switch (this.player) {
             case ONE -> {
                 player = Player.TWO;
-                stepsByPlayer1++;
+                incrStepsByPlayer1();
             }
             case TWO -> {
                 player = Player.ONE;
-                stepsByPlayer2++;
+                incrStepsByPlayer2();
             }
         }
     }
@@ -90,6 +90,13 @@ public class StoneCollectionGameModel {
      */
     public int getStepsByPlayer2(){return this.stepsByPlayer2;}
 
+    public void incrStepsByPlayer1(){
+        stepsByPlayer1++;
+    }
+
+    public void incrStepsByPlayer2(){
+        stepsByPlayer2++;
+    }
 
     /**
      * Returns true if the chosen stones are adjacent to one another
